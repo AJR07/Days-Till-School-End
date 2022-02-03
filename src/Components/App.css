@@ -8,5 +8,12 @@ h1{
 }
 
 h2{
-	font-size: 10vw;
+	font-size: 12.5vw;
+	color: black;
+}
+
+#grid{
+	display: grid;
+	grid-template-columns: 13vw 20vw 20vw 15vw 20vw;
+	margin-top: -10vw;
 }
