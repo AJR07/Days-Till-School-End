@@ -53,8 +53,8 @@ function differenceInDate() {
 function calculatePercent() {
   let dateNow = new Date().getTime();
   let dateEnd = new Date("November 1, 2022 12:40:0").getTime();
-  let dateTarget = new Date("November 1, 2023 12:40:0").getTime();
-  return 100 - ((dateEnd - dateNow) / (dateTarget - dateEnd) * 100);
+  let dateTarget = new Date("January 4, 2022 7:0:0").getTime();
+  return 100 - ((dateEnd - dateNow) / (dateEnd - dateTarget) * 100);
 }
 
 function App() {
@@ -69,7 +69,7 @@ function App() {
   return (
     <div>
       <div>
-        <h1 style={{ color: "white", textAlign: "center" }}>
+        <h1 style={{ textAlign: "center" }}>
           How long more till school ends?
         </h1>
         <h3 style={{ paddingLeft: "2vw" }}>Current Date: {time}</h3>

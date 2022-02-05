@@ -1,14 +1,19 @@
 h1, h2, h3, h4{
 	font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-	color: rgba(226, 226, 226, 0.754);
+	color: rgb(77, 139, 15);
 }
 
 h1{
 	font-size: 5vw;
+	color: rgb(141, 255, 27);
 }
 
 h2{
 	font-size: 12.5vw;
+}
+
+h2,h3{
+	color: rgb(117, 211, 22);
 }
 
 #grid{
@@ -20,11 +25,11 @@ h2{
 }
 
 h3:hover{
-	color: rgb(253, 234, 197);
+	color: rgb(135, 255, 14);
 }
 
 h2:hover{
-	color: rgb(253, 234, 197);
+	color: rgb(135, 255, 14);
 }
 
 #links{
