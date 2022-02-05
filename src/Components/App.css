@@ -43,3 +43,8 @@ button{
 button:hover{
 	background-color: black;
 }
+
+#progress{
+	padding-top: 10vw;
+	height: 10vw;
+}

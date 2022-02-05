@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import LinearProgressWithLabel from "../Utils/LinearProgressWithLabel";
 import "./App.css";
 
 function calculateTime() {
@@ -27,7 +28,7 @@ class Time {
 }
 
 let lastResult = "",
-  lastResult2 = new Time(0, 0, 0, 0);
+  lastResult2 = new Time(0, 0, 0, 0), lastResult3 = 0;
 
 function differenceInDate() {
   let dateNow = new Date().getTime();
@@ -49,12 +50,21 @@ function differenceInDate() {
   return toReturn;
 }
 
+function calculatePercent() {
+  let dateNow = new Date().getTime();
+  let dateEnd = new Date("November 1, 2022 12:40:0").getTime();
+  let dateTarget = new Date("November 1, 2023 12:40:0").getTime();
+  return 100 - ((dateEnd - dateNow) / (dateTarget - dateEnd) * 100);
+}
+
 function App() {
   let [time, setTime] = useState(calculateTime());
   let [timeDiff, setTimeDiff] = useState(differenceInDate());
+  let [progress, setProgress] = useState(calculatePercent());
   setTimeout(() => {
     startRecurse(time, setTime);
     startRecurse2(time, setTimeDiff);
+    startRecurse3(progress, setProgress);
   }, 1000);
   return (
     <div>
@@ -77,6 +87,9 @@ function App() {
           <h3 style={{ textAlign: "center" }}> Minutes</h3>
           <h3 style={{ textAlign: "center" }}> Seconds</h3>
         </div>
+      </div>
+      <div id="progress">
+        <LinearProgressWithLabel value={progress} />
       </div>
       <button id="links" onClick={() => {window.location.href = "https://github.com/AJR07/School-End-Timer"}}>Github</button>
     </div>
@@ -107,6 +120,19 @@ function startRecurse2(
   setTimeout(() => {
     startRecurse2(time, setTimeDiff);
   }, 1000);
+}
+
+function startRecurse3(
+  progress: number,
+  setProgress: React.Dispatch<React.SetStateAction<number>>
+) {
+  let result = calculatePercent();
+  if (result === lastResult3) return;
+  setProgress(result);
+  lastResult3 = result;
+  setTimeout(() => {
+    startRecurse3(progress, setProgress);
+  }, 3000);
 }
 
 export default App;
