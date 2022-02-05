@@ -1,5 +1,3 @@
 html{
-  background-image:url("/public/images/background.svg");
-  background-size: 120vw;
+  background-color: rgb(82, 82, 82);
 }
-

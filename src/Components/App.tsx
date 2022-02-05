@@ -1,9 +1,6 @@
 import React, { useState } from "react";
 import "./App.css";
 
-let lastResult = "",
-  lastResult2 = "";
-
 function calculateTime() {
   let currentDate = new Date();
   let cSeconds = currentDate.getSeconds();
@@ -16,9 +13,25 @@ function calculateTime() {
   return toReturn;
 }
 
+class Time {
+  days: number;
+  hours: number;
+  minutes: number;
+  seconds: number;
+  constructor(days: number, hours: number, minutes: number, seconds: number) {
+    this.days = days;
+    this.hours = hours;
+    this.minutes = minutes;
+    this.seconds = seconds;
+  }
+}
+
+let lastResult = "",
+  lastResult2 = new Time(0, 0, 0, 0);
+
 function differenceInDate() {
   let dateNow = new Date().getTime();
-  let dateEnd = new Date("November 1, 2022 0:0:0").getTime();
+  let dateEnd = new Date("November 1, 2022 12:40:0").getTime();
   let delta = Math.abs(dateEnd - dateNow) / 1000;
 
   let days = Math.floor(delta / 86400);
@@ -32,7 +45,7 @@ function differenceInDate() {
 
   let seconds = Math.floor(delta % 60);
 
-  let toReturn = `${days} ${hours} ${minutes} ${seconds}`;
+  let toReturn = new Time(days, hours, minutes, seconds);
   return toReturn;
 }
 
@@ -45,18 +58,27 @@ function App() {
   }, 1000);
   return (
     <div>
-      <h1 style={{ textAlign: "center" }}>How long more till school ends?</h1>
-      <h3 style={{ color: "white", paddingLeft: "2vw" }}>
-        Current Date: {time}
-      </h3>
-      <h2 style={{ textAlign: "center" }}>{timeDiff}</h2>
-      <div id="grid">
-        <div></div>
-        <h3 style={{ textAlign: "center", color: "black" }}> Days</h3>
-        <h3 style={{ textAlign: "center", color: "black" }}> Hours</h3>
-        <h3 style={{ textAlign: "center", color: "black" }}> Minutes</h3>
-        <h3 style={{ textAlign: "center", color: "black" }}> Seconds</h3>
+      <div>
+        <h1 style={{ color: "white", textAlign: "center" }}>
+          How long more till school ends?
+        </h1>
+        <h3 style={{ paddingLeft: "2vw" }}>Current Date: {time}</h3>
+        <div id="grid">
+          <h2>{timeDiff.days}</h2>
+          <h2>{timeDiff.hours < 10 ? `0${timeDiff.hours}` : timeDiff.hours}</h2>
+          <h2>
+            {timeDiff.minutes < 10 ? `0${timeDiff.minutes}` : timeDiff.minutes}
+          </h2>
+          <h2>
+            {timeDiff.seconds < 10 ? `0${timeDiff.seconds}` : timeDiff.seconds}
+          </h2>
+          <h3 style={{ textAlign: "center" }}> Days</h3>
+          <h3 style={{ textAlign: "center" }}> Hours</h3>
+          <h3 style={{ textAlign: "center" }}> Minutes</h3>
+          <h3 style={{ textAlign: "center" }}> Seconds</h3>
+        </div>
       </div>
+      <button id="links" onClick={() => {window.location.href = "https://github.com/AJR07/School-End-Timer"}}>Github</button>
     </div>
   );
 }
@@ -76,14 +98,14 @@ function startRecurse(
 
 function startRecurse2(
   time: string,
-  setTimeDiff: React.Dispatch<React.SetStateAction<string>>
+  setTimeDiff: React.Dispatch<React.SetStateAction<Time>>
 ) {
   let result = differenceInDate();
   if (result === lastResult2) return;
   setTimeDiff(result);
   lastResult2 = result;
   setTimeout(() => {
-    startRecurse(time, setTimeDiff);
+    startRecurse2(time, setTimeDiff);
   }, 1000);
 }
 

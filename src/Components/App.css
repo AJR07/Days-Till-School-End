@@ -1,6 +1,6 @@
 h1, h2, h3, h4{
-	font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;;
-	color: rgb(165, 159, 0);
+	font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+	color: rgba(226, 226, 226, 0.754);
 }
 
 h1{
@@ -9,11 +9,37 @@ h1{
 
 h2{
 	font-size: 12.5vw;
-	color: black;
 }
 
 #grid{
+	text-align: center;
+	padding-left: 3vw;
 	display: grid;
-	grid-template-columns: 13vw 20vw 20vw 15vw 20vw;
-	margin-top: -10vw;
+	grid-template-rows: 5vw 10vw;
+	grid-template-columns: 30vw 20vw 20vw 20vw;
+}
+
+h3:hover{
+	color: rgb(253, 234, 197);
+}
+
+h2:hover{
+	color: rgb(253, 234, 197);
+}
+
+#links{
+	position: fixed;
+	bottom: 0.5vw;
+}
+
+button{
+	background-color: rgb(44, 44, 44);
+	border-radius: 0;
+	border-width: 0;
+	color: rgb(214, 214, 214);
+	padding: 0.5vw;
+}
+
+button:hover{
+	background-color: black;
 }
