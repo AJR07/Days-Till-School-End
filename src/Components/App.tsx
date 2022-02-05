@@ -9,7 +9,7 @@ function calculateTime() {
   let cDay = currentDate.getDate();
   let cMonth = currentDate.getMonth() + 1;
   let cYear = currentDate.getFullYear();
-  let toReturn = `${cDay}/${cMonth}/${cYear} ${cHours}:${cMinutes}:${cSeconds}`;
+  let toReturn = `${cDay}/${cMonth}/${cYear} ${cHours < 10 ? `0${cHours}` : cHours}:${cMinutes < 10 ? `0${cMinutes}` : cMinutes}:${cSeconds < 10 ? `0${cSeconds}` : cSeconds}`;
   return toReturn;
 }
 
