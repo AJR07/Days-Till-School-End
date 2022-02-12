@@ -14,9 +14,7 @@ export default function LinearProgressWithLabel(props: Props) {
         <LinearProgress color={"success"} variant="determinate" {...props} />
       </Box>
       <Box sx={{ minWidth: 35 }}>
-        <Typography variant="body2" color="greenyellow">{`${Math.round(
-          props.value * 10000
-        )/10000}%`}</Typography>
+        <Typography variant="body2" color="greenyellow">{`${props.value}%`}</Typography>
       </Box>
     </Box>
   );

@@ -10,7 +10,11 @@ function calculateTime() {
   let cDay = currentDate.getDate();
   let cMonth = currentDate.getMonth() + 1;
   let cYear = currentDate.getFullYear();
-  let toReturn = `${cDay}/${cMonth}/${cYear} ${cHours < 10 ? `0${cHours}` : cHours}:${cMinutes < 10 ? `0${cMinutes}` : cMinutes}:${cSeconds < 10 ? `0${cSeconds}` : cSeconds}`;
+  let toReturn = `${cDay}/${cMonth}/${cYear} ${
+    cHours < 10 ? `0${cHours}` : cHours
+  }:${cMinutes < 10 ? `0${cMinutes}` : cMinutes}:${
+    cSeconds < 10 ? `0${cSeconds}` : cSeconds
+  }`;
   return toReturn;
 }
 
@@ -28,7 +32,13 @@ class Time {
 }
 
 let lastResult = "",
-  lastResult2 = new Time(0, 0, 0, 0), lastResult3 = 0;
+  lastResult2 = new Time(0, 0, 0, 0),
+  lastResult3 = 0;
+let prevProgress =
+  localStorage.getItem("progress") === null
+    ? calculatePercent()
+    : parseFloat(localStorage.getItem("progress")!);
+console.log(prevProgress);
 
 function differenceInDate() {
   let dateNow = new Date().getTime();
@@ -54,7 +64,9 @@ function calculatePercent() {
   let dateNow = new Date().getTime();
   let dateEnd = new Date("November 1, 2022 12:40:0").getTime();
   let dateTarget = new Date("January 4, 2022 7:0:0").getTime();
-  return 100 - ((dateEnd - dateNow) / (dateEnd - dateTarget) * 100);
+  let toReturn = 100 - ((dateEnd - dateNow) / (dateEnd - dateTarget)) * 100;
+  let res = Math.round(toReturn * 10000) / 10000;
+  return res;
 }
 
 function App() {
@@ -69,9 +81,7 @@ function App() {
   return (
     <div>
       <div>
-        <h1 style={{ textAlign: "center" }}>
-          How long more till school ends?
-        </h1>
+        <h1 style={{ textAlign: "center" }}>How long more till school ends?</h1>
         <h3 style={{ paddingLeft: "2vw" }}>Current Date: {time}</h3>
         <div id="grid">
           <h2>{timeDiff.days}</h2>
@@ -90,8 +100,16 @@ function App() {
       </div>
       <div id="progress">
         <LinearProgressWithLabel value={progress} />
+        <h3>{`+${Math.round((progress - prevProgress) * 10000) / 10000}%`}</h3>
       </div>
-      <button id="links" onClick={() => {window.location.href = "https://github.com/AJR07/School-End-Timer"}}>Github</button>
+      <button
+        id="links"
+        onClick={() => {
+          window.location.href = "https://github.com/AJR07/School-End-Timer";
+        }}
+      >
+        Github
+      </button>
     </div>
   );
 }
@@ -129,10 +147,11 @@ function startRecurse3(
   let result = calculatePercent();
   if (result === lastResult3) return;
   setProgress(result);
+  localStorage.setItem("progress", `${result}`);
   lastResult3 = result;
   setTimeout(() => {
     startRecurse3(progress, setProgress);
-  }, 3000);
+  }, 10000);
 }
 
 export default App;
