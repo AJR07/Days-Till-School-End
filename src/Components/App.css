@@ -3,11 +3,13 @@ h2,
 h3,
 h4 {
   font-family: "Fira Code", monospace;
+  font-weight: 400;
   color: rgb(77, 139, 15);
 }
 
 h1 {
   font-size: 5vw;
+  font-weight: 500;
   color: rgb(141, 255, 27);
 }
 
@@ -20,25 +22,9 @@ h3 {
   color: rgb(117, 211, 22);
 }
 
-#grid {
-  text-align: center;
-  padding-left: 3vw;
-  display: grid;
-  grid-template-rows: 5vw 10vw;
-  grid-template-columns: 30vw 20vw 20vw 20vw;
-}
-
-h3:hover {
-  color: rgb(135, 255, 14);
-}
-
+h3:hover,
 h2:hover {
   color: rgb(135, 255, 14);
-}
-
-#links {
-  position: fixed;
-  bottom: 0.5vw;
 }
 
 button {
@@ -51,6 +37,19 @@ button {
 
 button:hover {
   background-color: black;
+}
+
+#grid {
+  text-align: center;
+  padding-left: 3vw;
+  display: grid;
+  grid-template-rows: 5vw 10vw;
+  grid-template-columns: 30vw 20vw 20vw 20vw;
+}
+
+#links {
+  position: fixed;
+  bottom: 0.5vw;
 }
 
 #progress {
