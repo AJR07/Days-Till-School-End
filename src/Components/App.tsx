@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import LinearProgressWithLabel from "../Utils/LinearProgressWithLabel";
+import LinearProgressWithLabel from "../utils/LinearProgressWithLabel";
 import "./App.css";
 
 function calculateTime() {
