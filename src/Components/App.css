@@ -1,55 +1,59 @@
-h1, h2, h3, h4{
-	font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-	color: rgb(77, 139, 15);
+h1,
+h2,
+h3,
+h4 {
+  font-family: "Fira Code", monospace;
+  color: rgb(77, 139, 15);
 }
 
-h1{
-	font-size: 5vw;
-	color: rgb(141, 255, 27);
+h1 {
+  font-size: 5vw;
+  color: rgb(141, 255, 27);
 }
 
-h2{
-	font-size: 12.5vw;
+h2 {
+  font-size: 12.5vw;
 }
 
-h2,h3{
-	color: rgb(117, 211, 22);
+h2,
+h3 {
+  color: rgb(117, 211, 22);
 }
 
-#grid{
-	text-align: center;
-	padding-left: 3vw;
-	display: grid;
-	grid-template-rows: 5vw 10vw;
-	grid-template-columns: 30vw 20vw 20vw 20vw;
+#grid {
+  text-align: center;
+  padding-left: 3vw;
+  display: grid;
+  grid-template-rows: 5vw 10vw;
+  grid-template-columns: 30vw 20vw 20vw 20vw;
 }
 
-h3:hover{
-	color: rgb(135, 255, 14);
+h3:hover {
+  color: rgb(135, 255, 14);
 }
 
-h2:hover{
-	color: rgb(135, 255, 14);
+h2:hover {
+  color: rgb(135, 255, 14);
 }
 
-#links{
-	position: fixed;
-	bottom: 0.5vw;
+#links {
+  position: fixed;
+  bottom: 0.5vw;
 }
 
-button{
-	background-color: rgb(44, 44, 44);
-	border-radius: 0;
-	border-width: 0;
-	color: rgb(214, 214, 214);
-	padding: 0.5vw;
+button {
+  background-color: rgb(44, 44, 44);
+  border-radius: 0;
+  border-width: 0;
+  color: rgb(214, 214, 214);
+  padding: 0.5vw;
 }
 
-button:hover{
-	background-color: black;
+button:hover {
+  background-color: black;
 }
 
-#progress{
-	padding-top: 10vw;
-	height: 10vw;
+#progress {
+  padding-top: 10vw;
+  height: 10vw;
 }
