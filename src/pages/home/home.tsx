@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import LinearProgressWithLabel from "../utils/LinearProgressWithLabel";
-import "./App.css";
+import LinearProgressWithLabel from "../../utils/LinearProgressWithLabel";
+import "./home.css";
 
 function calculateTime() {
   let currentDate = new Date();
@@ -38,7 +38,6 @@ let prevProgress =
   localStorage.getItem("progress") === null
     ? calculatePercent()
     : parseFloat(localStorage.getItem("progress")!);
-console.log(prevProgress);
 
 function differenceInDate() {
   let dateNow = new Date().getTime();
@@ -69,7 +68,7 @@ function calculatePercent() {
   return res;
 }
 
-function App() {
+export default function Home() {
   let [time, setTime] = useState(calculateTime());
   let [timeDiff, setTimeDiff] = useState(differenceInDate());
   let [progress, setProgress] = useState(calculatePercent());
@@ -153,5 +152,3 @@ function startRecurse3(
     startRecurse3(progress, setProgress);
   }, 10000);
 }
-
-export default App;
