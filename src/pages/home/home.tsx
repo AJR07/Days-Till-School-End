@@ -41,7 +41,7 @@ let prevProgress =
 
 function differenceInDate() {
   let dateNow = new Date().getTime();
-  let dateEnd = new Date("October 30, 2022 12:40:0").getTime();
+  let dateEnd = new Date("October 30, 2023 12:40:0").getTime();
   let delta = Math.abs(dateEnd - dateNow) / 1000;
 
   let days = Math.floor(delta / 86400);
@@ -61,8 +61,8 @@ function differenceInDate() {
 
 function calculatePercent() {
   let dateNow = new Date().getTime();
-  let dateEnd = new Date("October 30, 2022 12:40:0").getTime();
-  let dateTarget = new Date("January 4, 2022 7:0:0").getTime();
+  let dateEnd = new Date("October 30, 2023 12:40:0").getTime();
+  let dateTarget = new Date("January 2, 2023 7:0:0").getTime();
   let toReturn = 100 - ((dateEnd - dateNow) / (dateEnd - dateTarget)) * 100;
   let res = Math.round(toReturn * 10000) / 10000;
   return res;

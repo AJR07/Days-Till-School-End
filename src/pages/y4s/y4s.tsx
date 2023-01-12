@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import LinearProgressWithLabel from "../../utils/LinearProgressWithLabel";
+import "./y4s.css";
 
 function calculateTime() {
   let currentDate = new Date();
@@ -34,13 +35,13 @@ let lastResult = "",
   lastResult2 = new Time(0, 0, 0, 0),
   lastResult3 = 0;
 let prevProgress =
-  localStorage.getItem("eoy") === null
+  localStorage.getItem("progress") === null
     ? calculatePercent()
-    : parseFloat(localStorage.getItem("eoy")!);
+    : parseFloat(localStorage.getItem("progress")!);
 
 function differenceInDate() {
   let dateNow = new Date().getTime();
-  let dateEnd = new Date("October 3, 2022 12:40:0").getTime();
+  let dateEnd = new Date("August 1, 2023 12:40:0").getTime();
   let delta = Math.abs(dateEnd - dateNow) / 1000;
 
   let days = Math.floor(delta / 86400);
@@ -60,14 +61,14 @@ function differenceInDate() {
 
 function calculatePercent() {
   let dateNow = new Date().getTime();
-  let dateEnd = new Date("October 3, 2022 12:40:0").getTime();
-  let dateTarget = new Date("January 4, 2022 7:0:0").getTime();
+  let dateEnd = new Date("August 1, 2023 12:40:0").getTime();
+  let dateTarget = new Date("January 2, 2023 7:0:0").getTime();
   let toReturn = 100 - ((dateEnd - dateNow) / (dateEnd - dateTarget)) * 100;
   let res = Math.round(toReturn * 10000) / 10000;
   return res;
 }
 
-export default function EOY() {
+export default function Home() {
   let [time, setTime] = useState(calculateTime());
   let [timeDiff, setTimeDiff] = useState(differenceInDate());
   let [progress, setProgress] = useState(calculatePercent());
@@ -79,7 +80,7 @@ export default function EOY() {
   return (
     <div>
       <div>
-        <h1 style={{ textAlign: "center" }}>How long more till EOYs ends?</h1>
+        <h1 style={{ textAlign: "center" }}>How long more till school ends?</h1>
         <h3 style={{ paddingLeft: "2vw" }}>Current Date: {time}</h3>
         <div id="grid">
           <h2>{timeDiff.days}</h2>
