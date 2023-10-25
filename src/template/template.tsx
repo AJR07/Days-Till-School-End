@@ -13,9 +13,9 @@ interface TemplateProps {
 }
 
 const prevProgress =
-localStorage.getItem("progress") === null
-    ? null
-    : parseFloat(localStorage.getItem("progress")!);
+    localStorage.getItem("progress") === null
+        ? null
+        : parseFloat(localStorage.getItem("progress")!);
 
 export default function Template(props: TemplateProps) {
     let [timeDiff, setTimeDiff] = useState(dateElapsed(props.endDate));
@@ -73,7 +73,11 @@ export default function Template(props: TemplateProps) {
 
             <div id="progress">
                 <LinearProgressWithLabel value={progress} />
-                <h3>{`+${Math.round((progress - (prevProgress ?? progress)) * 10000) / 10000}%`}</h3>
+                <h3>{`+${
+                    Math.round(
+                        (progress - (prevProgress ?? progress)) * 10000
+                    ) / 10000
+                }%`}</h3>
             </div>
 
             <button

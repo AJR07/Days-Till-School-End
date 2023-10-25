@@ -1,67 +1,67 @@
 * {
-  font-family: "Fira Code", monospace;
-  color: rgb(77, 139, 15);
-  font-weight: normal;
-  margin: 0px;
+    font-family: "Fira Code", monospace;
+    color: rgb(77, 139, 15);
+    font-weight: normal;
+    margin: 0px;
 }
 
 #title {
-  text-align: center;
-  font-weight: 500;
-  font-size: 70px;
-  padding-top: 5vh;
-  color: rgb(141, 255, 27);
+    text-align: center;
+    font-weight: 500;
+    font-size: 70px;
+    padding-top: 5vh;
+    color: rgb(141, 255, 27);
 }
 
 h2 {
-  font-size: 12.5vw;
+    font-size: 12.5vw;
 }
 
 h2,
 h3 {
-  color: rgb(117, 211, 22);
+    color: rgb(117, 211, 22);
 }
 
 h3:hover,
 h2:hover {
-  color: rgb(135, 255, 14);
+    color: rgb(135, 255, 14);
 }
 
-#current-date{
-  padding-top: 2vh;
-  padding-left: 30px;
+#current-date {
+    padding-top: 2vh;
+    padding-left: 30px;
 }
 
 #container {
-  width: 100vw;
-  height: auto;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
-  padding-top: 10vh;
+    width: 100vw;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 10vh;
 }
 
 #grid {
-  width: auto;
-  height: auto;
-  text-align: center;
+    width: auto;
+    height: auto;
+    text-align: center;
 
-  display: grid;
-  grid-template-rows: min-content min-content;
-  grid-template-columns: max-content 12vw max-content 12vw max-content 12vw max-content;
+    display: grid;
+    grid-template-rows: min-content min-content;
+    grid-template-columns: max-content 12vw max-content 12vw max-content 12vw max-content;
 }
 
 #links {
-  background-color: rgb(44, 44, 44);
-  border-radius: 0;
-  border-width: 0;
-  color: rgb(214, 214, 214);
-  padding: 0.5vw;
-  position: fixed;
-  bottom: 0.5vw;
+    background-color: rgb(44, 44, 44);
+    border-radius: 0;
+    border-width: 0;
+    color: rgb(214, 214, 214);
+    padding: 0.5vw;
+    position: fixed;
+    bottom: 0.5vw;
 }
 
 #links:hover {
-  background-color: black;
+    background-color: black;
 }
