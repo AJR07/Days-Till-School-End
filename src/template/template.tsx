@@ -12,6 +12,11 @@ interface TemplateProps {
     startDate: Date;
 }
 
+const prevProgress =
+localStorage.getItem("progress") === null
+    ? null
+    : parseFloat(localStorage.getItem("progress")!);
+
 export default function Template(props: TemplateProps) {
     let [timeDiff, setTimeDiff] = useState(dateElapsed(props.endDate));
     let [progress, setProgress] = useState(
@@ -22,6 +27,7 @@ export default function Template(props: TemplateProps) {
         const interval = setInterval(() => {
             setTimeDiff(dateElapsed(props.endDate));
             setProgress(calculateProgress(props.startDate, props.endDate));
+            localStorage.setItem("progress", progress.toString());
         }, 1000);
         return () => clearInterval(interval);
     }, []);
@@ -32,9 +38,7 @@ export default function Template(props: TemplateProps) {
                 <h1 id="title">
                     How long more till school ends? ({props.title})
                 </h1>
-                <h3 id="current-date">
-                    Current Date: {calculateTime()}
-                </h3>
+                <h3 id="current-date">Current Date: {calculateTime()}</h3>
                 <div id="container">
                     <div id="grid">
                         <h3 style={{ textAlign: "center" }}> Days</h3>
@@ -69,7 +73,7 @@ export default function Template(props: TemplateProps) {
 
             <div id="progress">
                 <LinearProgressWithLabel value={progress} />
-                {/* <h3>{`+${Math.round((progress - prevProgress) * 10000) / 10000}%`}</h3> */}
+                <h3>{`+${Math.round((progress - (prevProgress ?? progress)) * 10000) / 10000}%`}</h3>
             </div>
 
             <button

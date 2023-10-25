@@ -7,8 +7,9 @@
 
 #title {
   text-align: center;
-  font-weight: 100;
-  font-size: 80px;
+  font-weight: 500;
+  font-size: 70px;
+  padding-top: 5vh;
   color: rgb(141, 255, 27);
 }
 
