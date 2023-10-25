@@ -1,0 +1,56 @@
+* {
+  font-family: "Fira Code", monospace;
+  color: rgb(77, 139, 15);
+  font-weight: normal;
+}
+
+#title {
+  text-align: center;
+  font-weight: 100;
+  font-size: 80px;
+  color: rgb(141, 255, 27);
+}
+
+h2 {
+  font-size: 12.5vw;
+}
+
+h2,
+h3 {
+  color: rgb(117, 211, 22);
+}
+
+h3:hover,
+h2:hover {
+  color: rgb(135, 255, 14);
+}
+
+button {
+  background-color: rgb(44, 44, 44);
+  border-radius: 0;
+  border-width: 0;
+  color: rgb(214, 214, 214);
+  padding: 0.5vw;
+}
+
+button:hover {
+  background-color: black;
+}
+
+#grid {
+  text-align: center;
+  padding-left: 3vw;
+  display: grid;
+  grid-template-rows: 5vw 10vw;
+  grid-template-columns: 30vw 20vw 20vw 20vw;
+}
+
+#links {
+  position: fixed;
+  bottom: 0.5vw;
+}
+
+#progress {
+  padding-top: 10vw;
+  height: 10vw;
+}
