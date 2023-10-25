@@ -2,6 +2,7 @@
   font-family: "Fira Code", monospace;
   color: rgb(77, 139, 15);
   font-weight: normal;
+  margin: 0px;
 }
 
 #title {
@@ -25,32 +26,41 @@ h2:hover {
   color: rgb(135, 255, 14);
 }
 
-button {
+#current-date{
+  padding-top: 2vh;
+  padding-left: 30px;
+}
+
+#container {
+  width: 100vw;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 10vh;
+}
+
+#grid {
+  width: auto;
+  height: auto;
+  text-align: center;
+
+  display: grid;
+  grid-template-rows: min-content min-content;
+  grid-template-columns: max-content 12vw max-content 12vw max-content 12vw max-content;
+}
+
+#links {
   background-color: rgb(44, 44, 44);
   border-radius: 0;
   border-width: 0;
   color: rgb(214, 214, 214);
   padding: 0.5vw;
-}
-
-button:hover {
-  background-color: black;
-}
-
-#grid {
-  text-align: center;
-  padding-left: 3vw;
-  display: grid;
-  grid-template-rows: 5vw 10vw;
-  grid-template-columns: 30vw 20vw 20vw 20vw;
-}
-
-#links {
   position: fixed;
   bottom: 0.5vw;
 }
 
-#progress {
-  padding-top: 10vw;
-  height: 10vw;
+#links:hover {
+  background-color: black;
 }
